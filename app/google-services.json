@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "123456789000",
+    "firebase_url": "https://cardreaderapp-default.firebaseio.com",
+    "project_id": "cardreaderapp-default",
+    "storage_bucket": "cardreaderapp-default.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:123456789000:android:0000000000000000000000",
+        "android_client_info": {
+          "package_name": "com.example.cardreaderapp"
+        }
+      },
+      "api_key": [
+        {
+          "current_key": "REPLACE_WITH_YOUR_FIREBASE_API_KEY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
