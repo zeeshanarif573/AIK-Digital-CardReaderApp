@@ -1,26 +1,26 @@
 {
   "project_info": {
-    "project_number": "123456789000",
-    "firebase_url": "https://cardreaderapp-default.firebaseio.com",
-    "project_id": "cardreaderapp-default",
-    "storage_bucket": "cardreaderapp-default.appspot.com"
+    "project_number": "176763389992",
+    "project_id": "nfc-cardreaderapp",
+    "storage_bucket": "nfc-cardreaderapp.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:123456789000:android:0000000000000000000000",
+        "mobilesdk_app_id": "1:176763389992:android:3a9a140ae34e76ea660d1d",
         "android_client_info": {
           "package_name": "com.example.cardreaderapp"
         }
       },
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "REPLACE_WITH_YOUR_FIREBASE_API_KEY"
+          "current_key": "AIzaSyCFric6n8lXXmqpOwXOnEnvWteaqqbZxPI"
         }
       ],
       "services": {
         "appinvite_service": {
-          "status": 1
+          "other_platform_oauth_client": []
         }
       }
     }

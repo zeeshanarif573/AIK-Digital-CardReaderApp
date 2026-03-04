@@ -4,7 +4,7 @@ import com.example.cardreaderapp.domain.model.ApduResponse
 
 /**
  * Parses response APDU from receiver device.
- * Expected format: [data...] SW1 SW2 (status bytes).
+ * Expected format: SW1 SW2 (status bytes).
  * SW1=0x90, SW2=0x00 = success; otherwise error.
  */
 object ApduParser {
@@ -36,9 +36,15 @@ object ApduParser {
                 data = data
             )
         } else {
+            val code = ((sw1.toInt() and 0xFF) shl 8) or (sw2.toInt() and 0xFF)
+            val hint = when (code) {
+                0x6986 -> " (HCE app not selected—ensure SELECT AID is sent first)"
+                0x6A82 -> " (AID not found—is HCECardApp installed and in foreground on the other device?)"
+                else -> ""
+            }
             ApduResponse(
-                statusCode = ((sw1.toInt() and 0xFF) shl 8) or (sw2.toInt() and 0xFF),
-                statusMessage = "SW1=${sw1.toInt() and 0xFF}, SW2=${sw2.toInt() and 0xFF}",
+                statusCode = code,
+                statusMessage = "SW1=${sw1.toInt() and 0xFF}, SW2=${sw2.toInt() and 0xFF}$hint",
                 data = data
             )
         }

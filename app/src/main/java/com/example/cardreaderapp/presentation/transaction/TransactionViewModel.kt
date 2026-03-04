@@ -109,8 +109,9 @@ class TransactionViewModel(
                 nfcManager.closeQuietly(isoDep)
                 return@launch
             }
-            val command = ApduBuilder.buildSendTokenCommand(payload)
-            val result = nfcManager.transceive(isoDep, command)
+            val selectCommand = ApduBuilder.buildSelectAidCommand()
+            val paymentCommand = ApduBuilder.buildSendTokenCommand(payload)
+            val result = nfcManager.transceiveSelectThenPayment(isoDep, selectCommand, paymentCommand)
             result.fold(
                 onSuccess = { response ->
                     val parsed = ApduParser.parseResponse(response)
